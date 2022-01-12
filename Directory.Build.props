@@ -1,0 +1,10 @@
+<Project>
+	<PropertyGroup>
+		<BinDir>$(RepositoryRootDirectory)bin</BinDir>
+        <BaseOutputPath Condition=" '$(BaseOutputPath)' == '' ">$(BinDir)\$(MSBuildProjectName)\</BaseOutputPath>
+        <LangVersion>10.0</LangVersion>
+        <Company>Net Dimension Studio</Company>
+        <Authors>Xuanchen Lin</Authors>
+        <Copyright>Copyright © 2016-$([System.DateTime]::Now.Year) Xuanchen Lin all rights reserved.</Copyright>
+	</PropertyGroup>
+</Project>

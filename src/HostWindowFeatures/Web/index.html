@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            -webkit-text-size-adjust: 100%;
+            font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            font-size: 12.75px;
+        }
+
+        body {
+            display: grid;
+            grid-template-columns: 160px auto;
+            grid-template-rows: 32px auto;
+            grid-template-areas: "header header" "sidebar content";
+        }
+
+        .app-bar {
+            background-color: #f9f9f9;
+            grid-area: header;
+            position: relative;
+            text-align: center;
+            -webkit-app-region: drag;
+            user-select:none;
+        }
+
+            .app-bar > span {
+                color:#aaa;
+                line-height: 32px;
+            }
+
+        .button-area {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: absolute;
+            height: 100%;
+            margin: 0 8px;
+            -webkit-app-region: no-drag;
+        }
+
+            .button-area > .btn {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: #eaeaea;
+                margin: 0 3px;
+            }
+
+                .button-area > .btn.close-btn {
+                    background-color: #fb5758;
+                }
+
+                .button-area > .btn.min-btn {
+                    background-color: #fdbb27;
+                }
+
+                .button-area > .btn.max-btn {
+                    background-color: #1dc443;
+                }
+
+        /* 应用程序失去焦点时： .formium-app-deactivate */
+        .formium-app-deactivate .button-area > .btn {
+            background-color: #dcdcdc;
+        }
+
+        /* 应用程序处于焦点时： .formium-app-activated */
+        .formium-app-activated {}
+
+        /* 窗体失去焦点时： .formium-deactivate */
+        .formium-deactivate {}
+
+        /* 窗体处于焦点时： .formium-activated */
+        .formium-activated .app-bar > span {
+            color: #333;
+        }
+
+        /* 窗体最大化时： .formium-maximized */
+        .formium-maximized .app-bar {
+            background-color:#666;
+        }
+        .formium-maximized .app-bar > span {
+            color:#fff;
+        }
+
+        .side-bar {
+            grid-area: sidebar;
+            background-color: #fcfcfc;
+            padding: 8px;
+        }
+
+        .content-view {
+            grid-area: content;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header class="app-bar">
+        <div class="button-area">
+            <div class="btn close-btn" formium-command="close"></div>
+            <div class="btn min-btn" formium-command="minimize"></div>
+            <div class="btn max-btn" formium-command="maximize"></div>
+        </div>
+        <span>Welcome to Nacintosh</span>
+    </header>
+    <aside class="side-bar">
+        <p>NanUI</p>
+    </aside>
+    <main class="content-view">
+        <button class="btn" onclick="handleFullScreen()">全屏</button>
+        <button class="btn" onclick="handleCenterWindow()">居中</button>
+    </main>
+    <script>
+        function handleFullScreen() {
+            Formium?.hostWindow?.fullScreen();
+        }
+
+        function handleCenterWindow() {
+            Formium.hostWindow.center();
+        }
+
+        // 窗体激活状态更改事件
+        window.addEventListener("hostactivatestatechange", ({type, detail : e }) => {
+            console.log(type, e);
+        });
+
+        // 窗体激活事件
+        window.addEventListener("hostactivated", ({ type, detail: e }) => {
+            console.log(type, "window activated");
+        });
+
+        // 窗体进入非激活状态事件
+        window.addEventListener("hostdeactivate", ({ type, detail: e }) => {
+            console.log(type, "window deactivate");
+        });
+
+        // 应用激活状态更改事件
+        window.addEventListener("appactivatestatechange", ({ type, detail: e }) => {
+            console.log(type, e);
+        });
+
+        // 应用激活事件
+        window.addEventListener("appactivated", ({ type, detail: e }) => {
+            console.log(type, "app activated");
+        });
+
+        // 应用进入后台事件
+        window.addEventListener("appdeactivate", ({ type, detail: e }) => {
+            console.log(type, "app deactivate");
+        });
+
+        // 窗体状态（最大化、最小化、还原等）更改事件
+        window.addEventListener("hoststatechanged", ({ type, detail: e }) => {
+            console.log(type, e);
+        });
+
+        // 窗体尺寸变更事件
+        window.addEventListener("hostsizechanged", ({ type, detail: e }) => {
+            console.log(type, e);
+        });
+
+        // 窗体位置变更事件
+        window.addEventListener("hostpositionchanged", ({ type, detail: e }) => {
+            console.log(type, e);
+        });
+
+    </script>
+</body>
+</html>
