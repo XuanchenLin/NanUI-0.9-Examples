@@ -8,7 +8,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{570989F2-85DF-40FF-858D-1D645E4CAC60}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsingSplashScreen", "src\UsingSplashScreen\UsingSplashScreen.csproj", "{304654F0-8FE9-4577-ACF7-C2753D728EAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +23,10 @@ Global
 		{08E332EC-1ACD-44EC-B6CF-EE2787D0A738}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08E332EC-1ACD-44EC-B6CF-EE2787D0A738}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08E332EC-1ACD-44EC-B6CF-EE2787D0A738}.Release|Any CPU.Build.0 = Release|Any CPU
+		{304654F0-8FE9-4577-ACF7-C2753D728EAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{304654F0-8FE9-4577-ACF7-C2753D728EAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{304654F0-8FE9-4577-ACF7-C2753D728EAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{304654F0-8FE9-4577-ACF7-C2753D728EAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

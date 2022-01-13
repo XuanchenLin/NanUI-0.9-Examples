@@ -11,3 +11,7 @@
 - HostWindowFeatures - [窗体指令示例](src/HostWindowFeatures)
 
   此示例为您展示了如何在 Web 前端页面中控制 NanUI 的承载窗体，获取承载窗体的各项状态等内容。
+
+- UsingSplashScreen - [使用启动画面](src/UsingSplashScreen)
+  
+  此示例为您展示如何使用和定制 NanUI 的启动等待画面。
